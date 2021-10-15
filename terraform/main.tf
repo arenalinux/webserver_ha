@@ -15,7 +15,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     # Lembre de trocar o bucket para o seu, não pode ser o mesmo nome
-    bucket = "webserver-gitarena"
+    bucket = "arena123"
     key    = "terraform-webserver.tfstate"
     region = "us-east-1"
   }
