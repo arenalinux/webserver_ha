@@ -9,7 +9,7 @@ resource "aws_instance" "jenkins" {
 
 resource "aws_key_pair" "jenkins" {
   key_name = "ec2-user"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsBiOWy0KeqcxYe9qwgYNUxZc3VffxuYNW8/HwE63ebuc0c4O0kFL4lsXBkLJQI1nVzMQC1713Vud8CkgLPCJ8vZ61gY+DCgxSB8G95LU+znioHDz9GLdmFFGKv9SXHOlx510S/2sqe+jncV8ACVleFxZH+XBnmZs2iObV47U+0+IT9ZcpY9sODm8nsV4RQKylXTFZsiilKxdZMkd63EnadstoVFI3q7uTN7wAd1OrEQltS8zijhMgAoRK9b1L8zslC18tlamy5DJLsCs+UlZfuT2pMXDglrfN567w+uH2NoXvUIKpFezb9zkMCxg+BLg9PJY1GzJnFNIAmC5ok2kv ec2-user"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCU3FvpHEwefi2nJsWRKnnFRVAkLOPyCqRb8F7QzoVqVm8Bfe8kHzeIVdfmEeuO6SfM51MjDxY5tse3AE0S5Sb7nG6GnHuLQXOjd6IN1iHmB1tMC9Sg0vymtgGqSuPr9Y5RBRGMt9bPgT3aOCDs26WHUOquZ0teYpip0wDiKKJbKinY++tm+KH7r5VBrLVv5G5Iqt/MOb0WPKJz2UFP+Uc3AUAzC7B2k8GAQexVAgksHER9Xc6JgXGjfaeErDMUcp0gNKeGoHCjEXHdZjHuNmoohyK63EWU+mWkIybp2o6mREapMzhQzDLxge8zA6RSwhWXXmPhzYo89Gyn4GjrI5px ec2-user"
 }
 
 resource "aws_security_group" "allow_tls" {
