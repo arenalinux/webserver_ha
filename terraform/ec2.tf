@@ -25,7 +25,7 @@ resource "aws_security_group" "allow_tls" {
       protocol         = "tcp"
       cidr_blocks      = [aws_vpc.main.cidr_block]
       ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
-    }
+    },
     {
       description      = "http from VPC"
       from_port        = 80
@@ -33,7 +33,7 @@ resource "aws_security_group" "allow_tls" {
       protocol         = "tcp"
       cidr_blocks      = [aws_vpc.main.cidr_block]
       ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
-    }
+    },
     {
       description      = "https from VPC"
       from_port        = 8080
@@ -41,7 +41,7 @@ resource "aws_security_group" "allow_tls" {
       protocol         = "tcp"
       cidr_blocks      = [aws_vpc.main.cidr_block]
       ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
-    }
+    },
     {
       description      = "ssh from VPC"
       from_port        = 22
@@ -49,7 +49,7 @@ resource "aws_security_group" "allow_tls" {
       protocol         = "tcp"
       cidr_blocks      = [aws_vpc.main.cidr_block]
       ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
-    }
+    },
     {
       description      = "ICMP from VPC"
       from_port        = -1
