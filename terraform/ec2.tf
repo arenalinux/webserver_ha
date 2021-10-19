@@ -1,7 +1,7 @@
 resource "aws_instance" "jenkins" {
   ami = "ami-0ab4d1e9cf9a1215a"
   instance_type = "t2.micro"
-  security_groups = "${aws_security_group.allow_tls.id}"
+  security_groups = ["${aws_security_group.allow_tls.id}"]
   tags = {
     Name = "jenkins-server"
   }
