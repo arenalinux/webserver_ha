@@ -20,3 +20,11 @@ terraform {
     region = "us-east-1"
   }
 }
+
+resource "null_resource" "provision_master"{
+  depends_on = ["openstack_compute_volume_attach_v2.jenkins_store_attach"]
+  provisioner "local-exec" {
+    command       = "ansible-playbook jenkins.yml"
+    working_dir   = "../ansible"
+  }
+}

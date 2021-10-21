@@ -1,0 +1,41 @@
+---
+- hosts: master
+  remote_user: centos
+  become: true
+  become_user: root
+
+- name: Install Docker dependencies
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+      - docker-python
+      - unzip
+    state: latest
+
+- name: Add Docker repo
+  shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: Install Docker CE
+  yum: name=docker-ce-18.09.0 state=present
+
+- name: Enable and start Docker service
+  service: name=docker enabled=yes state=started
+
+- name: Create /dev/vdb1 if not exist
+  parted: device=/dev/vdb number=1 state=present
+  register: vdc1_created
+
+- name: Format /dev/vdb1 if not formated
+  filesystem: dev=/dev/vdb1 fstype=xfs
+  when: vdc1_created.changed
+
+- name: Create /jenkins/ folder
+  file: path=/jenkins state=directory owner=centos group=centos mode=0775
+
+- name: Mount /dev/vdb1 in /jenkins
+  mount: path=/jenkins src=/dev/vdb1 state=mounted fstype=xfs
+
+- name: Change mount point owner and perms
+  file: path=/jenkins owner=centos group=centos mode=0775
